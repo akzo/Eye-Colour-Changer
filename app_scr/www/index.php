@@ -45,7 +45,7 @@
         <tr  style="height: 75%; width=100%">
             <td colspan = 2 >
             
-            <iframe width = 100% height=100% src = "">
+            <iframe width = 100% height=100% src = "main.html">
             </td>
         </tr>
             
