@@ -14,9 +14,25 @@
            
        }
        
-       
+       .progress_text {
+           display: inline-block; 
+           padding: 20px 10px; 
+           text-decoration: none; 
+           cursor: pointer; 
+           background: #deefff; 
+           background: -moz-linear-gradient(top, #deefff 0%, #98bede 100%);
+           background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#deefff), color-stop(100%,#98bede));
+           background: -webkit-linear-gradient(top, #990066 0%,#990066 100%);
+           background: -o-linear-gradient(top, #990066 0%,#990066 100%);
+           background: -ms-linear-gradient(top, #990066 0%,#990066 100%);
+           background: linear-gradient(top, #990066 0%,#990066 100%);
+           border-radius: 10px; 
+           font: 12px/1 Arial, sans-serif; 
+           color: #000000; 
+       }
+         
 
-   </style> 
+    </style> 
     
     
 </head>
@@ -26,8 +42,11 @@
 <!-- hypnosis image -->
     
     <div class = "hypnosis">
-    <img src = "trial_hyp_image.jpg" height = 40% width=40% >
+    <img src = "trial_hyp_image.jpg" height = 40% width=60% >
+    <br><br>
+        <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
     </div>
+    
     
 </body>
     
