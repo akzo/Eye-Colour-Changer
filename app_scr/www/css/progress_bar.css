@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-   <style>
-       .hypnosis{
-           width: 100%;
-           height: 100%;
-           top: 15%;
-           left: 15%
-           right: 15%;
-           text-align: center;
-           position: fixed;
-           
-       }
-       
-       .progress_text {
+ .progress_text {
            display: inline-block; 
            padding: 20px 10px; 
            text-decoration: none; 
@@ -30,25 +14,3 @@
            font: 12px/1 Arial, sans-serif; 
            color: #000000; 
        }
-         
-
-    </style> 
-    
-    
-</head>
-
-    
-<body>
-<!-- hypnosis image -->
-    
-    <div class = "hypnosis">
-    <img src = "trial_hyp_image.jpg" height = 40% width=60% >
-    <br><br>
-        <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
-    </div>
-    
-    
-</body>
-    
-    
-</html>

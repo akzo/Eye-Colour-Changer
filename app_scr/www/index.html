@@ -13,12 +13,69 @@
         </style>
         
         
+        <!-- navigation page -->
+        <link rel="stylesheet" type="text/css" href="css/menu.css"/>
+        <style>
+            
+            .navigation{
+                
+                visibility: hidden;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                float: left;
+                position: fixed; 
+                top: 0; bottom: 0; left: 0; 
+            }
+            #nav_btn{
+                 top: 0%;
+                 position: fixed;
+                
+            }
+        
+        </style>
+        
+        <!-- hypnosis image -->
+         <style>
+       .hypnosis{
+           width: 100%;
+           height: 100%;
+           top: 35%;
+           left: 15%
+           right: 15%;
+           text-align: center;
+           position: fixed;
+           
+       }
+        </style>
+        
+        
+        <!-- progress bar -->
+        <link rel="stylesheet" type="text/css" href="css/progress_bar.css"/>
+        
+        <!--javascript to control a navigation page-->
+        
+        
+        <script>
+            
+            function open_nav(){  
+                
+                
+               // var nav = document.getElementByClassName("navigation")[0];
+                //nav.style.visibility = "visible";
+                document.getElementsByClassName("navigation")[0].style.visibility = "visible";
+            }        
+        
+        </script> 
+       
+        
     </head>
     <body>
-        <script type="text/javascript" src="cordova.js"></script>
+         
+        <script type="text/javascript" src="cordova.js"></script>    
         
-        
-        
+            
         <!--table for making-->
         <table style="height:100%; bordercolor=black; width=100% ; background-color=purple;
         position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
@@ -26,18 +83,19 @@
         <!--upper row-->
         <tr  style="background-color:#990066; height: 15%; width=100%">
         <td> 
-            <!-- dashed button -->
+              <!-- dashed button -->
             <center>
-            <button class="btn">
+            <button class="btn" onclick="open_nav()">
             <img src="dash_button.svg" width=40 height=55 alt="">
             </button>
-            </center>       
+            </center>        
+            
         </td>  
             
         <td width=100%>
             <!--headline-->
             <center>                
-                <font style ="color: rgba(0,0,0,0.6); text-shadow: 2px 2px 3px rgba(255,255,255,0.1);" size="+5" face="times"><b>ICHANGE</b></font>    
+            <font style ="color: rgba(0,0,0,0.6); text-shadow: 2px 2px 3px rgba(255,255,255,0.1);" size="+5" face="times"><b>ICHANGE</b></font>    
             </center>
         </td>
         </tr>
@@ -45,12 +103,27 @@
         <!--bottom row-->
         <tr  style="height: 75%; width=100%">
             <td colspan = 2 >
-            
-            <iframe width = 100% height=100% src = "main.html">
+                
+            <div class = "hypnosis">
+            <img src = "trial_hyp_image.jpg" height = 40% width=60% >
+             <br><br>
+        <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
+            </div>
+                
             </td>
-        </tr>
-            
+        </tr>          
             
         </table>
+        
+         <div class="navigation">
+                
+            <ul>
+            <li><a class="active" href="#home">About</a></li>
+            <li><a href="#sign_up">Sign Up</a></li>
+            <li><a href="#hypnosis">Hypnosis</a></li>
+                <div align="right"><button id="nav_btn"> X </button></div>
+            </ul>
+            </div>
+           
     </body>
 </html>
