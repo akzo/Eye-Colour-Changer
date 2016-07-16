@@ -37,27 +37,19 @@
             }
         
         </style>
-        
-        <!-- hypnosis image -->
+         <!-- sign_form -->
          <style>
-       .hypnosis{
-           width: 100%;
-           height: 100%;
-           top: 35%;
-           left: 15%
-           right: 15%;
-           text-align: center;
-           position: fixed;
-           
+          .signIn_form{
+              width: 100%;
+              height: 100%;
+              top: 35%;
+              left: 15%
+              right: 35%;
+              text-align: center;
+              position: fixed;           
        }
         </style>
-        
-        
-        <!-- progress bar -->
-        <link rel="stylesheet" type="text/css" href="css/progress_bar.css"/>
-        
-        <!--javascript to control a navigation page-->
-        
+        <!--javascript to control a navigation page-->        
         
         <script>
             
@@ -107,10 +99,18 @@
         <tr  style="height: 75%; width=100%">
             <td colspan = 2 >
                 
-            <div class = "hypnosis">
-            <img src = "images/trial_hyp_image.jpg" height = 40% width=60% >
-             <br><br>
-        <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
+            <div class = "signIn_form">
+                <form action="" method="post">
+                    <p style="text-indent:20px;">Login: <input name = "login" type = "text" maxlength="21"></p>
+                    <br><br><br>
+                    
+                    Password: <input name = "password" type = "password" size="13">
+                    <br><br><br>
+                    
+                    <input type = "submit" value="Submit" style="height:40px; width:70px">
+                </form>
+                <br><br>
+                <a href = "sign_up.html"> Not registered?</a>
             </div>
                 
             </td>
@@ -121,10 +121,11 @@
          <div class="navigation">
                 
             <ul>
-            <li><a href="sign_in.html">Sign In</a></li>
+            <li><a class="active" href="#sign_in.html">Sign In</a></li>
             <li><a href="">About Us</a></li>
-            <li><a class="active" href="index.html">Hypnosis</a></li>
+            <li><a href="index.html">Hypnosis</a></li>
                 <div align="right"><button id="nav_btn" onclick="close_nav()" > X </button></div>
+                
             </ul>
             </div>
            
