@@ -50,6 +50,20 @@
            position: fixed;
            
        }
+        
+             .blue{
+                /*define the origin of the rotation*/
+               
+                  
+                  transition: transform 1s linear;
+                  transform-origin: center 70%;
+                  transform-style: preserve-3D;
+                 
+                 
+             }
+             .blue-rotate{
+                 transform: rotate(360deg);
+             }
         </style>
         
         
@@ -72,17 +86,25 @@
         
         </script> 
         
-        <!-- Javascript to rotate the image -->
+        <!-- Javascript to rotate the hypnosis image -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
         <script>
+            
             $(document).ready(function() {
                 alert("Click on the image to start the hypnosis.")
-                var rotate = 0
-                $('img#blue').click(function(){
+                
+            
+               var rotate = 0
+               var angle = 0
+                $('.blue').click(function(){
                     //change the phase of the rotation --> stop or start
+                    
                     rotate = 1 - rotate
                     if (rotate){
-                          
+                        
+                        $('.blue').toggleClass('blue-rotate');
+                        
                         
                     }
                     
@@ -91,8 +113,9 @@
                     }
                     
                     
-                    });
-            });
+                    }); 
+            }); 
+            
             
         </script>
        
@@ -130,10 +153,14 @@
         <!--bottom row-->
         <tr  style="height: 75%; width=100%">
             <td colspan = 2 >
+            <!--hypnosis image -->
                 
-            <div class = "hypnosis">
-            <img id = "blue" src = "images/blue.png" height = 50% width=60% >
+            <div class = "hypnosis">               
+            <!-- blue hypnosis image -->
+            <img class = "blue" src = "images/blue.png" height = 50% width=60% >
+            
              <br><br>
+    
         <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
             </div>
                 
