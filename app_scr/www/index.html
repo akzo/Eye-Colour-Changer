@@ -51,18 +51,12 @@
            
        }
         
-             .blue{
-                /*define the origin of the rotation*/
-               
+        .blue{
+            /*define the origin of the rotation*/             
+            transform-origin: center 60%;               
                   
-                  transition: transform 1s linear;
-                  transform-origin: center 70%;
-                  transform-style: preserve-3D;
                  
                  
-             }
-             .blue-rotate{
-                 transform: rotate(360deg);
              }
         </style>
         
@@ -89,31 +83,32 @@
         <!-- Javascript to rotate the hypnosis image -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+        <script src="js/rotation.js"></script>
+        
         <script>
             
             $(document).ready(function() {
-                alert("Click on the image to start the hypnosis.")
+                alert("Click on the image to start the hypnosis. It will stop after 2:40 minutes")
+                 
                 
-            
-               var rotate = 0
-               var angle = 0
+               var rotation = 0
                 $('.blue').click(function(){
                     //change the phase of the rotation --> stop or start
                     
-                    rotate = 1 - rotate
-                    if (rotate){
+                    rotation = 1 - rotation
+                    if (rotation){
                         
-                        $('.blue').toggleClass('blue-rotate');
-                        
+                        $(this).rotate({ startDeg:0, count:2, duration:80, forceJS:true });
                         
                     }
                     
                     else{
                         
+                        $(this).stop();
                     }
                     
                     
-                    }); 
+                    });  
             }); 
             
             
