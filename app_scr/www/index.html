@@ -90,26 +90,47 @@
             $(document).ready(function() {
                 alert("Click on the image to start the hypnosis. It will stop after 2:40 minutes")
                  
-                
-               var rotation = 0
+               
+               var rotation = 0;
                 $('.blue').click(function(){
                     //change the phase of the rotation --> stop or start
                     
-                    rotation = 1 - rotation
+                    rotation = 1 - rotation;
                     if (rotation){
                         
                         $(this).rotate({ startDeg:0, count:2, duration:80, forceJS:true });
+                        document.getElementById('music').play();
                         
-                    }
+                        
+                        
+                        }
                     
                     else{
                         
                         $(this).stop();
+                        document.getElementById('music').pause();
                     }
                     
                     
-                    });  
+                   
+                    
+                    }); 
+                
+                var seconds = 0;
+                var timerId = setInterval(function() {
+                    if(rotation){
+                        seconds += 1;
+                    }  
+                    
+                    if(seconds == 150){
+                        //document.getElementsByClassName('progress_text')[0].innerHTML = "Hi";
+                    }
+                    
+                }, 1000);
+                
             }); 
+            
+            
             
             
         </script>
@@ -156,8 +177,11 @@
             
              <br><br>
     
-        <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
+            <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
             </div>
+              
+            <!-- Hypnosis music -->
+            <audio id="music" src="music/buddah_music.mp3" preload="auto"></audio>
                 
             </td>
         </tr>          
