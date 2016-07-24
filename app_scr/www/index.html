@@ -87,13 +87,38 @@
         
         <script>
             
-            $(document).ready(function() {
-                alert("Click on the image to start the hypnosis. It will stop after 2:40 minutes")
-                 
+            //progress of the user
+            function loadProgress(status) {
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                                document.getElementsByClassName('progress_text')[0].innerHTML = xhttp.responseText;
+                                
+                                if(status == 0){
+                                alert("Click on the image to start the hypnosis. We will tell you when to stop.");
+                                }
+                
+                                }
+                            };
+                        xhttp.open("GET", "php/progress.php?q=" +status, true);
+                        xhttp.send();
+                        }
+                                    
+            
+            
+            
+            $(document).ready(function() {              
+                                             
+               loadProgress(0);
                
                var rotation = 0;
                 $('.blue').click(function(){
                     //change the phase of the rotation --> stop or start
+                    
+                    
+                    
+                   
+                    
                     
                     rotation = 1 - rotation;
                     if (rotation){
@@ -120,10 +145,15 @@
                 var timerId = setInterval(function() {
                     if(rotation){
                         seconds += 1;
+                        console.log(seconds);
                     }  
                     
-                    if(seconds == 150){
-                        //document.getElementsByClassName('progress_text')[0].innerHTML = "Hi";
+                    if(seconds == 172){
+                        
+                        loadProgress(1);
+                        alert("Well done! Today you are one step closer to success! We are waiting for you tomorrow!")                        
+                        seconds = 0;
+                        
                     }
                     
                 }, 1000);
@@ -177,7 +207,7 @@
             
              <br><br>
     
-            <p class = "progress_text"><font size = "+1">Progress: 0%</font></p>
+            <p class = "progress_text"></p>
             </div>
               
             <!-- Hypnosis music -->
@@ -191,7 +221,7 @@
          <div class="navigation">
                 
             <ul>
-            <li><a href="sign_in.html">Sign In</a></li>
+            <!-- <li><a href="sign_in.html">Sign In</a></li> -->
             <li><a href="about_us.html">About Us</a></li>
             <li><a class="active" href="index.html">Hypnosis</a></li>
                 <div align="right"><button id="nav_btn" onclick="close_nav()" > X </button></div>
