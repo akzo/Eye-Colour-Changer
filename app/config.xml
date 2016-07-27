@@ -45,6 +45,8 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
+    <gap:plugin name="cordova-plugin-admob" source="npm" />
+    <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />

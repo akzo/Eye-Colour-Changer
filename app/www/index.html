@@ -107,12 +107,29 @@
                                     
             
              
-               
+                 //ads
+               var admobid = {};
+               admobid = { 
+                   interstitial: 'ca-app-pub-1065564951385857/6029796329'
+                   };
+                
+                function initApp() {
+                    if (AdMob) {
+                        AdMob.createBanner({
+                        adId : admobid.banner,
+                        position : AdMob.AD_POSITION.BOTTOM_CENTER,
+                        autoShow : true
+                            });
+                        }
+                    }
             
             $(document).ready(function() {  
                 
                //loadProgress(0);
                setTimeout(function(){ alert("Click on the image to start the hypnosis. We will tell you when to stop."); }, 1000);
+              
+                initApp();
+
               
                
                var rotation = 0;
