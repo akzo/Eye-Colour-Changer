@@ -80,70 +80,49 @@
         
         </script> 
         
-        <!-- Javascript to rotate the hypnosis image -->
+        <!-- Javascript to rotate the hypnosis image and refresh progress -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
-        <script src="js/rotation.js"></script>
-        
-        <script>
-            
-            //progress of the user
-            /*
-            function loadProgress(status) {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function() {
-                            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                                document.getElementsByClassName('progress_text')[0].innerHTML = xhttp.responseText;
-                                
-                                if(status == 0){
-                                alert("Click on the image to start the hypnosis. We will tell you when to stop.");
-                                }
-                
-                                }
-                            };
-                        xhttp.open("GET", "php/progress.php?q=" +status, true);
-                        xhttp.send();
-                        }*/
-                                    
-            
-             
-              
+        <script src="js/rotation.js"></script>        
+        <script>      
                    
+           
             
             
-            $(document).ready(function() {  
+            
+            //rotating the hypnosis image
+            
+            $(document).ready(function() { 
                 
-               //loadProgress(0);
+                
+                //javascript to control the progress of the users
+                //localStorage["prg"] = 0;
+                var progress = localStorage.getItem('prg') ;   
+                if (progress == null){
+                    progress = 0;                                
+                }
+                progress = parseInt(progress)
+                localStorage["prg"] = progress;   
+                document.getElementsByClassName('progress_text')[0].innerHTML = "<font size ='+1'> Progress: " + progress + "%" + "</font>" ;
+                
+               //Instructions
+               
                setTimeout(function(){ alert("Click on the image to start the hypnosis. We will tell you when to stop."); }, 1000);
-              
-               
-               
-               
+                         
+                              
                var rotation = 0;
                 $('.blue').click(function(){
-                    //change the phase of the rotation --> stop or start
-                    
-                    
-                    
-                   
-                    
-                    
-                    rotation = 1 - rotation;
-                    if (rotation){
-                        
-                        $(this).rotate({ startDeg:0, count:2, duration:80, forceJS:true });
-                        document.getElementById('music').play(); 
-                       
-                        
-                        
+                    //change the phase of the rotation --> stop or start                  
+                                                       
+                                        
+                    rotation = 1 - rotation; 
+                    if (rotation){                        
+                        $(this).rotate({ startDeg:0, count:2, duration:80, forceJS:true });                     
                         }
                     
                     else{
-                        $(this).stop();
-                        document.getElementById('music').pause();
-                        
-                    } 
-                    
+                        $(this).stop();                        
+                    }                   
                     
                    
                     
@@ -158,8 +137,13 @@
                     
                     if(seconds == 172){
                         
-                        //loadProgress(1);
-                        alert("Well done! Today you are one step closer to success! We are waiting for you tomorrow!")                        
+                        
+                        alert("Well done! Today you are one step closer to success! We are waiting for you tomorrow!");  
+                        
+                        progress += 1; 
+                        localStorage["prg"] = progress;   
+                        document.getElementsByClassName('progress_text')[0].innerHTML = "<font size ='+1'> Progress: " + progress + "%" + "</font>" ;  
+                        //reset seconds
                         seconds = 0;
                         
                         
@@ -170,6 +154,9 @@
                 
                 
             }); 
+                    
+                
+        //Admob    
             
       function onDeviceReady() {
           setTimeout(function() { 
@@ -193,6 +180,7 @@
             
             
         </script>
+        
        
         
     </head>
@@ -236,7 +224,7 @@
             
              <br><br>
     
-            <p class = "progress_text"><font size ="+1"> Should be used for at least one month.</font></p> <!-- we will have Progress: % in the future -->
+            <p class = "progress_text"><font size ="+1"> </font></p> <!-- we will have Progress: % in the future -->
             </div>
               
             <!-- Hypnosis music for browsers -->
